@@ -4,8 +4,12 @@
 package idig.za.net.conscalc;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * @author josiah
@@ -16,7 +20,60 @@ public class CalcMenu extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.calc_menu);
+        
+        // create a button object
+        final Button buttonAddRecord = (Button) findViewById(R.id.buttonAddRecord);
+        // attach a listener to the button
+        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// create an Intent object for this activity, including its destination class
+//				Intent myIntent = new Intent(CalcMenu.this, AddRecord.class);
+//				// run the activity
+//				startActivity(myIntent);
+				return false;
+			}
+		});
+        
+        // create a button object
+        final Button buttonCalculateConsumption = (Button) findViewById(R.id.buttonCalculateConsumption);
+        // attach a listener to the button
+        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+//				// create an Intent object for this activity, including its destination class
+//				Intent myIntent = new Intent(CalcMenu.this, CalculateConsumption.class);
+//				// run the activity
+//				startActivity(myIntent);
+				return false;
+			}
+		});
+        
+        // create a button object
+        final Button buttonDeleteRecord = (Button) findViewById(R.id.buttonDeleteRecord);
+        // attach a listener to the button
+        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+//				// create an Intent object for this activity, including its destination class
+//				Intent myIntent = new Intent(CalcMenu.this, DeleteRecord.class);
+//				// run the activity
+//				startActivity(myIntent);
+				return false;
+			}
+		});
+        
+        // create a button object
+        final Button buttonEditRecord = (Button) findViewById(R.id.buttonEditRecord);
+        // attach a listener to the button
+        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
     }
 
     @Override
