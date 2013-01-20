@@ -27,9 +27,9 @@ public class GetRegistration extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.get_registration);
 		final Button saveRegistrationButton = (Button) findViewById(R.id.buttonSaveRegistration);
-		saveRegistrationButton.setOnTouchListener(new View.OnTouchListener() {
+		saveRegistrationButton.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onTouch(View arg0, MotionEvent arg1) {
+			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				EditText editTextRegistration = (EditText) findViewById(R.id.editTextRegistration);
 				String registrationNumber = editTextRegistration.getText().toString();
@@ -49,8 +49,6 @@ public class GetRegistration extends Activity {
 				
 				// start the intent
 				startActivity(myIntent);
-				 
-				return false;
 			}
 		});
 	}

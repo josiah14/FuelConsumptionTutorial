@@ -25,53 +25,49 @@ public class CalcMenu extends Activity {
         // create a button object
         final Button buttonAddRecord = (Button) findViewById(R.id.buttonAddRecord);
         // attach a listener to the button
-        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+        buttonAddRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View v) {
 				// create an Intent object for this activity, including its destination class
 //				Intent myIntent = new Intent(CalcMenu.this, AddRecord.class);
 //				// run the activity
 //				startActivity(myIntent);
-				return false;
 			}
 		});
         
         // create a button object
         final Button buttonCalculateConsumption = (Button) findViewById(R.id.buttonCalculateConsumption);
         // attach a listener to the button
-        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+        buttonAddRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View v) {
 //				// create an Intent object for this activity, including its destination class
 //				Intent myIntent = new Intent(CalcMenu.this, CalculateConsumption.class);
 //				// run the activity
 //				startActivity(myIntent);
-				return false;
 			}
 		});
         
         // create a button object
         final Button buttonDeleteRecord = (Button) findViewById(R.id.buttonDeleteRecord);
         // attach a listener to the button
-        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+        buttonAddRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View v) {
 //				// create an Intent object for this activity, including its destination class
 //				Intent myIntent = new Intent(CalcMenu.this, DeleteRecord.class);
 //				// run the activity
 //				startActivity(myIntent);
-				return false;
 			}
 		});
         
         // create a button object
         final Button buttonEditRecord = (Button) findViewById(R.id.buttonEditRecord);
         // attach a listener to the button
-        buttonAddRecord.setOnTouchListener(new View.OnTouchListener() {
+        buttonAddRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
+			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				return false;
 			}
 		});
     }
