@@ -10,6 +10,21 @@ import android.content.SharedPreferences;
 import android.view.Menu;
 
 public class SplashScreen extends Activity {
+	// Debugging Variables
+	private static class Debugger {
+		public static final String TAG = "SplashScreen";
+		private static debugLevels debugLevel = debugLevels.OFF;
+		public static enum debugLevels { OFF, ON };
+		
+		public static debugLevels getDebugLevel() {
+			return debugLevel;
+		}
+		
+		public static void setDebugLevel(debugLevels newDebugLevel) {
+			debugLevel = newDebugLevel;
+		}
+	}
+	
 	// declare a file for storing the preferences
 	public static final String PREFS_NAME = "MyPrefsFile";
 
