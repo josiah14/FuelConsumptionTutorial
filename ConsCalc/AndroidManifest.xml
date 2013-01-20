@@ -22,9 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="SplashScreen"></activity>
-        <activity android:name="CalcMenu"></activity>
-        <activity android:name="SearchRecord"></activity>
+        <activity android:name="idig.za.net.conscalc.SplashScreen" >
+        </activity>
+        <activity android:name="idig.za.net.conscalc.CalcMenu" >
+        </activity>
+        <activity android:name="idig.za.net.conscalc.SearchRecord" >
+        </activity>
+        <activity
+            android:name="idig.za.net.conscalc.AddRecord">
+        </activity>
     </application>
 
 </manifest>

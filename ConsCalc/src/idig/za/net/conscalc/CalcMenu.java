@@ -29,9 +29,9 @@ public class CalcMenu extends Activity {
 			@Override
 			public void onClick(View v) {
 				// create an Intent object for this activity, including its destination class
-//				Intent myIntent = new Intent(CalcMenu.this, AddRecord.class);
-//				// run the activity
-//				startActivity(myIntent);
+				Intent myIntent = new Intent(CalcMenu.this, AddRecord.class);
+				// run the activity
+				startActivity(myIntent);
 			}
 		});
         

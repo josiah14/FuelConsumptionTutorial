@@ -30,7 +30,6 @@ public class GetRegistration extends Activity {
 		saveRegistrationButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				EditText editTextRegistration = (EditText) findViewById(R.id.editTextRegistration);
 				String registrationNumber = editTextRegistration.getText().toString();
 
