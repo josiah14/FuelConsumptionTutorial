@@ -28,7 +28,19 @@
         </activity>
         <activity android:name="idig.za.net.conscalc.SearchRecord" >
         </activity>
-        <activity android:name="idig.za.net.conscalc.AddRecord">
+        <activity android:name="idig.za.net.conscalc.AddRecord" >
+        </activity>
+        <activity
+            android:name="idig.za.net.conscalc.CalculateConsumption"
+            android:label="@string/calculate_consumption" >
+        </activity>
+        <activity
+            android:name="idig.za.net.conscalc.DeleteRecord"
+            android:label="@string/delete_record" >
+        </activity>
+        <activity
+            android:name="idig.za.net.conscalc.EditRecord"
+            android:label="@string/edit_record" >
         </activity>
     </application>
 

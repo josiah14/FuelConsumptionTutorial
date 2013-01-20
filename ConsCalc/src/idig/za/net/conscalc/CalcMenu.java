@@ -41,10 +41,10 @@ public class CalcMenu extends Activity {
         buttonCalculateConsumption.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				// create an Intent object for this activity, including its destination class
-//				Intent myIntent = new Intent(CalcMenu.this, CalculateConsumption.class);
-//				// run the activity
-//				startActivity(myIntent);
+				// create an Intent object for this activity, including its destination class
+				Intent myIntent = new Intent(CalcMenu.this, CalculateConsumption.class);
+				// run the activity
+				startActivity(myIntent);
 			}
 		});
         
@@ -54,10 +54,10 @@ public class CalcMenu extends Activity {
         buttonDeleteRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				// create an Intent object for this activity, including its destination class
-//				Intent myIntent = new Intent(CalcMenu.this, DeleteRecord.class);
-//				// run the activity
-//				startActivity(myIntent);
+				// create an Intent object for this activity, including its destination class
+				Intent myIntent = new Intent(CalcMenu.this, DeleteRecord.class);
+				// run the activity
+				startActivity(myIntent);
 			}
 		});
         
@@ -67,7 +67,10 @@ public class CalcMenu extends Activity {
         buttonEditRecord.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				// create an Intent object for this activity, including its destination class
+				Intent myIntent = new Intent(CalcMenu.this, EditRecord.class);
+				// run the activity
+				startActivity(myIntent);
 			}
 		});
     }
