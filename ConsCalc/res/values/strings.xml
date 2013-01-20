@@ -8,5 +8,7 @@
     <string name="delete_record">Delete Record</string>
     <string name="calculate_consumption">Calculate Consumption</string>
     <string name="edit_record">Edit Record</string>
+    <string name="splash_screen">Welcome!</string>
+    <string name="get_registration">Registration Info</string>
 
 </resources>
