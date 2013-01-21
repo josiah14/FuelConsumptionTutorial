@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 
 public class SplashScreen extends Activity {
 	// Debugging Variables
 	private static class Debugger {
 		public static final String TAG = "SplashScreen";
-		private static debugLevels debugLevel = debugLevels.OFF;
+		private static debugLevels debugLevel = debugLevels.ON;
 		public static enum debugLevels { OFF, ON };
 		
 		public static debugLevels getDebugLevel() {
@@ -50,6 +51,8 @@ public class SplashScreen extends Activity {
 				boolean registrationIsSet = settings.getBoolean("registrationIsSet", false);
 				
 				// check whether the registration number has been set
+				Log.d(Debugger.TAG, "is Registration set in splash screen = " + registrationIsSet );
+				Log.i(Debugger.TAG, "is Registtration set in splash screen = " + registrationIsSet);
 				if (registrationIsSet) {
 					// cancel the timer
 					myTimer.cancel();
