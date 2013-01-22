@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Heading1">24dp</dimen>
+    <dimen name="Heading0">28dp</dimen>
+    <dimen name="Heading2">20dp</dimen>
+    <dimen name="Heading3">18dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="twelve">12dp</dimen>
+</resources>

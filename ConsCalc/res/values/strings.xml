@@ -10,5 +10,17 @@
     <string name="edit_record">Edit Record</string>
     <string name="splash_screen">Welcome!</string>
     <string name="get_registration">Registration Info</string>
+    <string name="add_record_details">Details of record to add</string>
+    <string name="registration_number">Registration#</string>
+    <string name="date_label">Date:</string>
+    <string name="odometer_label">Odometer:</string>
+    <string name="litres_label">Litres:</string>
+    <string name="cost_label">Cost:</string>
+    <string name="date_text">yyyy-dd-mm</string>
+    <string name="odometer_text">odometer</string>
+    <string name="litres_text">litres</string>
+    <string name="cost_text">cost</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="save_record">Save record</string>
 
 </resources>
