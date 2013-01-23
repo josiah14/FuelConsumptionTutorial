@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/add_record"
     android:layout_width="match_parent"
@@ -8,122 +8,146 @@
 
     <TextView
         android:id="@+id/TextViewAddRecordHeading"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
         android:clickable="false"
+        android:gravity="center_horizontal"
         android:text="@string/add_record"
         android:textSize="@dimen/Heading0" />
 
     <TextView
         android:id="@+id/TextViewAddRecordDetails"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_below="@+id/TextViewAddRecordHeading"
-        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
         android:text="@string/add_record_details"
         android:textSize="@dimen/Heading2" />
 
     <TextView
         android:id="@+id/TextViewRegNumber"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TextViewAddRecordDetails"
-        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
         android:text="@string/registration_number"
         android:textSize="@dimen/Heading3" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonPickDate"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/pick_date" />
+
+        <TextView
+            android:id="@+id/TextViewDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/date_label" />
+
+        <TextView
+            android:id="@+id/TextViewDisplayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/TextViewDateLabel"
+            android:text="@string/date_text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="@dimen/twelve" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewOdometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/odometer_label" />
+
+        <EditText
+            android:id="@+id/editTextOdometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="@string/odometer_text"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/editTextLitres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="@string/litres_text"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textViewLitres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/litres_label" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cost_label" />
+
+        <EditText
+            android:id="@+id/editTextCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="@string/cost_text"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/buttonSaveRecord"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_gravity="fill_vertical|bottom"
+        android:gravity="center_vertical|center_horizontal"
         android:text="@string/save_record" />
 
-    <TextView
-        android:id="@+id/TextViewDateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextViewRegNumber"
-        android:text="@string/date_label" />
-
-    <Button
-        android:id="@+id/buttonPickDate"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/TextViewRegNumber"
-        android:text="@string/pick_date" />
-
-    <EditText
-        android:id="@+id/editTextLitres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextOdometer"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/litres_text" />
-
-    <EditText
-        android:id="@+id/editTextCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextLitres"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:hint="@string/cost_text" />
-
-    <TextView
-        android:id="@+id/textViewCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/editTextCost"
-        android:text="@string/cost_label" />
-
-    <TextView
-        android:id="@+id/textViewOdometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/buttonPickDate"
-        android:layout_marginTop="16dp"
-        android:text="@string/odometer_label" />
-
-    <EditText
-        android:id="@+id/editTextOdometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textViewOdometer"
-        android:ems="10"
-        android:hint="@string/odometer_text" />
-
-    <TextView
-        android:id="@+id/textViewLitres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/editTextLitres"
-        android:text="@string/litres_label" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextViewAddRecordDetails"
-        android:layout_below="@+id/TextViewRegNumber"
-        android:text="@string/date_text"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="@dimen/twelve" />
-
-</RelativeLayout>
+</LinearLayout>
