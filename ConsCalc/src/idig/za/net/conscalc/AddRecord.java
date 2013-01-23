@@ -1,5 +1,7 @@
 package idig.za.net.conscalc;
 
+import java.util.Calendar;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -7,37 +9,40 @@ import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 
 public class AddRecord extends Activity {
-
+	/*************************************************************************************************************
+	 * Class Members 																																														 *
+	 *************************************************************************************************************/
+	// create variable called date of type long
+	private long date;
+	// create variable called stringDate of type String
+	private String stringDate;
+	
+	/*************************************************************************************************************
+	 * Nested Classes																																														 *
+	 *************************************************************************************************************/
+	// Debugging Variables
+	private static class Debugger {
+		public static final String TAG = "AddRecord";
+		private static debugLevels debugLevel = debugLevels.ON;
+		public static enum debugLevels { OFF, ON };
+		
+		public static debugLevels getDebugLevel() {
+			return debugLevel;
+		}
+		
+		public static void setDebugLevel(debugLevels newDebugLevel) {
+			debugLevel = newDebugLevel;
+		}
+	}
+	
+	/*************************************************************************************************************
+	 * Methods          																																														 *
+	 *************************************************************************************************************/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_record);
-		// Show the Up button in the action bar.
-//		getActionBar().setDisplayHomeAsUpEnabled(true);
+		final Calendar cal = Calendar.getInstance();
 	}
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.add_record, menu);
-//		return true;
-//	}
-
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		switch (item.getItemId()) {
-//		case android.R.id.home:
-//			// This ID represents the Home or Up button. In the case of this
-//			// activity, the Up button is shown. Use NavUtils to allow users
-//			// to navigate up one level in the application structure. For
-//			// more details, see the Navigation pattern on Android Design:
-//			//
-//			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-//			//
-//			NavUtils.navigateUpFromSameTask(this);
-//			return true;
-//		}
-//		return super.onOptionsItemSelected(item);
-//	}
 
 }
