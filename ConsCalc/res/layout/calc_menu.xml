@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calc_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewMenuHeading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Main Menu"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutMainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.44" >
+
+        <Button
+            android:id="@+id/buttonAddRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Add Record" />
+
+        <Button
+            android:id="@+id/buttonCalculateConsumption"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/buttonDeleteRecord"
+            android:layout_alignParentLeft="true"
+            android:text="Calculate Consumption" />
+
+        <Button
+            android:id="@+id/buttonDeleteRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="Delete Record" />
+
+        <Button
+            android:id="@+id/buttonEditRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Edit Record" />
+
+    </RelativeLayout>
+
+</LinearLayout>
