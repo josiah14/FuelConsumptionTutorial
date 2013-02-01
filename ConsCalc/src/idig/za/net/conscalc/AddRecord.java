@@ -9,7 +9,11 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
 public class AddRecord extends Activity {
@@ -18,6 +22,15 @@ public class AddRecord extends Activity {
 	 *************************************************************************************************************/
 	// create variable called date of type long
 	private long date;
+	// date related members
+	private TextView mDateDisplay;
+	private Button mPickDate;
+	private int mYear;
+	private int mMonth;
+	private int mDay;
+	long datePubStamp;
+	static final int DATE_DIALOG_ID = 0;
+	private boolean dateChanged = false;
 	// create variable called stringDate of type String
 	private String stringDate;
 	// declare a file for storing the preferences
@@ -55,6 +68,34 @@ public class AddRecord extends Activity {
 		
 		TextView tvRegistrationNumber  = (TextView) findViewById(R.id.TextViewRegNumber);
 		tvRegistrationNumber.setText(getRegistrationNumber());
+		
+		createListeners();
+	}
+	
+	private void createListeners() {
+		final Button saveRecordButton = (Button) findViewById(R.id.buttonSaveRecord);
+		saveRecordButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// create EditText objects for each of the EditText views
+				final EditText editTextOdometer = (EditText) findViewById(R.id.editTextOdometer);
+				final EditText editTextLitres = (EditText) findViewById(R.id.editTextLitres);
+				final EditText editTextCost = (EditText) findViewById(R.id.editTextCost);
+				
+				// verify values
+				if ((editTextOdometer.getText().toString().trim().length() == 0) 
+						|| (editTextLitres.getText().toString().trim().length() == 0)
+						|| (editTextCost.getText().toString().trim().length() == 0)) {
+					// create a toast to warn that nothing was entered
+					Toast.makeText(AddRecord.this, "Don't be an idiot! No data. No text found in the edit text", Toast.LENGTH_LONG).show();
+				} else {
+					// get the values from the EditText objects
+					int odometerValue = Integer.parseInt(editTextOdometer.getText().toString());
+					String litresValue = editTextLitres.getText().toString();
+					String costValue = editTextCost.getText().toString();
+				}
+			}
+		});
 	}
 	
 	private SharedPreferences getPreferences() {
@@ -90,5 +131,15 @@ public class AddRecord extends Activity {
 			}
 		}
 	}
-
+	
+	// updates the date in the TextView
+	private void updateDisplay() {
+		
+		// a new date has been selected other than one displayed so dateChanged is True
+		dateChanged = true;
+		mDateDisplay.setText(new StringBuilder()
+		// Month is 0 based so add 1
+		.append(mMonth + 1).append("-").append(mDay).append("-")
+		.append(mYear).append(" "));
+	}
 }
