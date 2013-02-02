@@ -40,7 +40,7 @@
             android:label="@string/delete_record" >
         </activity>
         <activity
-            android:name="idig.za.net.conscalc.EditRecord"
+            android:name="idig.za.net.conscalc.activities.EditRecord"
             android:label="@string/edit_record" >
         </activity>
     </application>
