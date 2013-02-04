@@ -8,22 +8,18 @@ import java.util.Date;
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.app.NavUtils;
+import idig.za.net.conscalc.dialog_fragments.DatePickerDialogFragment;
 
 public class AddRecord extends Activity {
 	/*************************************************************************************************************
@@ -42,6 +38,8 @@ public class AddRecord extends Activity {
 	private boolean dateChanged = false;
 	// create variable called stringDate of type String
 	private String stringDate;
+	// listener for datePickerDialog in legacy Android OS's
+	private DatePickerDialog.OnDateSetListener mDateSetListener;
 	// declare a file for storing the preferences
 	public static final String PREFS_NAME = "MyPrefsFile";
 	
@@ -111,16 +109,33 @@ public class AddRecord extends Activity {
 		// capture the date button View element
 		mPickDate = (Button) findViewById(R.id.buttonPickDate);
 		
+		
+		mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+			@Override
+			public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				mYear = year;
+				mMonth = monthOfYear;
+				mDay = dayOfMonth;
+				updateDisplay();
+			}
+		};
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		} 
+		
 		// add a click listener to the button
 		mPickDate.setOnClickListener(new View.OnClickListener() {
 			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
 				if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+					Log.i(Debugger.TAG, "Using Legacy Pre-Honeycomb datePickerDialog version");
 					showDialog(DATE_DIALOG_ID);
 				} else {
-					showDialog(DATE_DIALOG_ID);
-					//new DialogFragment().show(getFragmentManager(), Debugger.TAG);
+					Log.i(Debugger.TAG, "Using modern Honeycomb and later datePickerDialog version");
+					DatePickerDialogFragment datePickerDialog = new DatePickerDialogFragment();
+					datePickerDialog.setOnDatePickedListener(mDateSetListener);
+					datePickerDialog.show(getFragmentManager(), Debugger.TAG);
 				}
 			}
 		});
@@ -192,22 +207,20 @@ public class AddRecord extends Activity {
 		Log.i(Debugger.TAG, "the string representation of the date stored to the database = " + newDate.toString());
 	}
 	
-	// the callback received when the user "sets" the date in the dialog
-	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-		@Override
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			mYear = year;
-			mMonth = monthOfYear;
-			mDay = dayOfMonth;
-			updateDisplay();
-		}
-	};
-	
 	@Override
 	protected Dialog onCreateDialog(int id) {
+		if (mDateSetListener == null) {
+			Log.e(Debugger.TAG, "The date set listener was null for pre-Honeycomb OS");
+		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			Log.e(Debugger.TAG, "Tried to use Legacy date-picker-dialog with Honeycomb or later OS");
+		} else {
 		switch (id) {
-		case DATE_DIALOG_ID:
-			return new DatePickerDialog(this, mDateSetListener, mYear, mMonth, mDay);
+			case DATE_DIALOG_ID:
+				return new DatePickerDialog(this, mDateSetListener, mYear, mMonth, mDay);
+			}
 		}
+		// if erred or did not match dialog ID, return null
+		Log.e(Debugger.TAG, "onCreateDialog erred, no datePickerDialog returned");
+		return null;
 	}
 }
