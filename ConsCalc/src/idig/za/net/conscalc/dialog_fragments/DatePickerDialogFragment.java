@@ -21,10 +21,10 @@ import android.os.Bundle;
  */
 @SuppressLint("NewApi")
 public class DatePickerDialogFragment extends DialogFragment {
-	private Vector<OnDateSetListener> _listeners;
+	protected Vector<OnDateSetListener> _listeners;
 	
 	int mYear, mMonth, mDay;
-	DatePickerDialog datePickerDialog;
+	DatePickerDialog mDatePickerDialog;
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -37,11 +37,11 @@ public class DatePickerDialogFragment extends DialogFragment {
 		// get the day from the calendar
 		mDay = cal.get(Calendar.DAY_OF_MONTH);
 
-		datePickerDialog = new DatePickerDialog(
+		mDatePickerDialog = new DatePickerDialog(
 				getActivity(), null, mYear, mMonth, mDay);
-		datePickerDialog.setCancelable(true);
-		datePickerDialog.setCanceledOnTouchOutside(true);
-		datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+		mDatePickerDialog.setCancelable(true);
+		mDatePickerDialog.setCanceledOnTouchOutside(true);
+		mDatePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -49,18 +49,18 @@ public class DatePickerDialogFragment extends DialogFragment {
 			}
 		});
 		
-		datePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Set", new DialogInterface.OnClickListener() {
+		mDatePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Set", new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				datePickerDialog.getDatePicker().clearFocus();
+				mDatePickerDialog.getDatePicker().clearFocus();
 				fireDatePickedEvent();
 			}
 		});
 		
-		datePickerDialog.setTitle("Set Date");
+		mDatePickerDialog.setTitle("Set Date");
 		
-		return datePickerDialog;
+		return mDatePickerDialog;
 	}
 	
 	public void setOnDatePickedListener(OnDateSetListener listener) {
@@ -71,15 +71,15 @@ public class DatePickerDialogFragment extends DialogFragment {
 	}
 	
 	protected void fireDatePickedEvent () {
-		mYear = datePickerDialog.getDatePicker().getYear();
-		mMonth = datePickerDialog.getDatePicker().getMonth();
-		mDay = datePickerDialog.getDatePicker().getDayOfMonth();
+		mYear = mDatePickerDialog.getDatePicker().getYear();
+		mMonth = mDatePickerDialog.getDatePicker().getMonth();
+		mDay = mDatePickerDialog.getDatePicker().getDayOfMonth();
 		
 		if (_listeners != null && !_listeners.isEmpty()) {
 			Enumeration<OnDateSetListener> e = _listeners.elements();
 			while (e.hasMoreElements()) {
 				OnDateSetListener listener = e.nextElement();
-				listener.onDateSet(datePickerDialog.getDatePicker(), mYear, mMonth, mDay);
+				listener.onDateSet(mDatePickerDialog.getDatePicker(), mYear, mMonth, mDay);
 			}
 		}
 	}

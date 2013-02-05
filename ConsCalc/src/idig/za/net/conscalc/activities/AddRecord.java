@@ -19,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import idig.za.net.conscalc.database.FuelRecord;
 import idig.za.net.conscalc.dialog_fragments.DatePickerDialogFragment;
 
 public class AddRecord extends Activity {
@@ -26,22 +27,23 @@ public class AddRecord extends Activity {
 	 * Class Members 																							 *
 	 *************************************************************************************************************/
 	// create variable called date of type long
-	private long date;
+	private long mDate;
 	// date related members
 	private TextView mDateDisplay;
 	private Button mPickDate;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
-	long datePubStamp;
+	long mDatePubStamp;
 	static final int DATE_DIALOG_ID = 0;
-	private boolean dateChanged = false;
+	private boolean mDateChanged = false;
 	// create variable called stringDate of type String
-	private String stringDate;
+	private String mStringDate;
 	// listener for datePickerDialog in legacy Android OS's
 	private DatePickerDialog.OnDateSetListener mDateSetListener;
 	// declare a file for storing the preferences
 	public static final String PREFS_NAME = "MyPrefsFile";
+	FuelRecord mFuelRecord;
 	
 	/*************************************************************************************************************
 	 * Nested Classes																							 *
@@ -100,6 +102,22 @@ public class AddRecord extends Activity {
 					int odometerValue = Integer.parseInt(editTextOdometer.getText().toString());
 					String litresValue = editTextLitres.getText().toString();
 					String costValue = editTextCost.getText().toString();
+					// check if the date was changed. if not, then use the date from fuelRecord
+					// else, use the date from date update
+					long savedDate;
+					if (mDateChanged) {
+						savedDate = mDatePubStamp;
+					} else {
+						savedDate = mDate;
+					}
+					// instantiate a FuelRecord
+					mFuelRecord = new FuelRecord();
+					
+					// put fields into record
+					mFuelRecord.setDate(savedDate);
+					mFuelRecord.setOdometer(odometerValue);
+					mFuelRecord.setLitres(litresValue);
+					mFuelRecord.setCost(costValue);
 				}
 			}
 		});
@@ -119,9 +137,6 @@ public class AddRecord extends Activity {
 				updateDisplay();
 			}
 		};
-		
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-		} 
 		
 		// add a click listener to the button
 		mPickDate.setOnClickListener(new View.OnClickListener() {
@@ -156,14 +171,14 @@ public class AddRecord extends Activity {
 		mDay = cal.get(Calendar.DAY_OF_MONTH);
 		
 		// get date as long to store in database
-		date = cal.getTimeInMillis();
+		mDate = cal.getTimeInMillis();
 		
 		// for checking - convert long to string
-		Date curDate = new Date(date);
-		stringDate = curDate.toString();
-		Log.i(Debugger.TAG, "the long default curDate = " + date);
-		Log.i(Debugger.TAG, "the curDate string representation = " + stringDate);
-		return stringDate;
+		Date curDate = new Date(mDate);
+		mStringDate = curDate.toString();
+		Log.i(Debugger.TAG, "the long default curDate = " + mDate);
+		Log.i(Debugger.TAG, "the curDate string representation = " + mStringDate);
+		return mStringDate;
 	}
 	
 	private String getRegistrationNumber() {
@@ -187,7 +202,7 @@ public class AddRecord extends Activity {
 	private void updateDisplay() {
 		
 		// a new date has been selected other than one displayed so dateChanged is True
-		dateChanged = true;
+		mDateChanged = true;
 		mDateDisplay.setText(new StringBuilder()
 		// Month is 0 based so add 1
 		.append(mMonth + 1).append("-").append(mDay).append("-")
@@ -201,8 +216,8 @@ public class AddRecord extends Activity {
 		cal.set(Calendar.YEAR, mYear);
 		cal.set(Calendar.MONTH, mMonth);
 		cal.set(Calendar.DAY_OF_MONTH, mDay);
-		datePubStamp = cal.getTimeInMillis(); // store this date long val into the database
-		Date newDate = new Date(datePubStamp);
+		mDatePubStamp = cal.getTimeInMillis(); // store this date long val into the database
+		Date newDate = new Date(mDatePubStamp);
 		Log.i(Debugger.TAG, "the long date passed to the database = " + newDate);
 		Log.i(Debugger.TAG, "the string representation of the date stored to the database = " + newDate.toString());
 	}
