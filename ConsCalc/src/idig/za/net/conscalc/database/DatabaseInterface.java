@@ -174,8 +174,7 @@ public class DatabaseInterface {
 
         ContentValues values = new ContentValues();
         values.put(Col_date, afuelRecord.getDate());
-        Date longDate = new Date(afuelRecord.getDate());
-        String stringDate = longDate.toString();
+        String stringDate = (new Date(afuelRecord.getDate())).toString();
         values.put(Col_stringDate, stringDate);
         values.put(Col_odometer, afuelRecord.getOdometer());
         values.put(Col_litres, afuelRecord.getLitres());

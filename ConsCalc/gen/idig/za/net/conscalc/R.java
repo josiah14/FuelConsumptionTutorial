@@ -16,6 +16,7 @@ public final class R {
         public static final int Heading2=0x7f040002;
         public static final int Heading3=0x7f040003;
         public static final int fifteen=0x7f040004;
+        public static final int fourteen=0x7f040007;
         public static final int ten=0x7f040005;
         public static final int twelve=0x7f040006;
     }
@@ -36,23 +37,30 @@ public final class R {
         public static final int buttonPickDate=0x7f080005;
         public static final int buttonSaveRecord=0x7f080011;
         public static final int buttonSaveRegistration=0x7f08001c;
+        public static final int buttonSearch=0x7f080023;
         public static final int calc_menu=0x7f080012;
         public static final int editTextCost=0x7f080010;
         public static final int editTextLitres=0x7f08000c;
         public static final int editTextOdometer=0x7f08000a;
         public static final int editTextRegistration=0x7f08001b;
         public static final int mainLinearLayout=0x7f080019;
-        public static final int menu_settings=0x7f08001d;
+        public static final int menu_settings=0x7f080024;
         public static final int relativeLayout1=0x7f080004;
         public static final int relativeLayout2=0x7f080008;
         public static final int relativeLayout3=0x7f08000b;
         public static final int relativeLayout4=0x7f08000e;
+        public static final int relativeLayoutDate=0x7f08001e;
         public static final int relativeLayoutMainMenu=0x7f080014;
+        public static final int relativeLayoutOdometer=0x7f080021;
+        public static final int relativeLayoutSearch=0x7f080022;
         public static final int textViewCost=0x7f08000f;
+        public static final int textViewDateLabel=0x7f08001f;
+        public static final int textViewDisplayDate=0x7f080020;
         public static final int textViewGetRegistrationLabel=0x7f08001a;
         public static final int textViewLitres=0x7f08000d;
         public static final int textViewMenuHeading=0x7f080013;
         public static final int textViewOdometer=0x7f080009;
+        public static final int textViewSearchRecordHeading=0x7f08001d;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -62,6 +70,7 @@ public final class R {
         public static final int delete_record=0x7f030004;
         public static final int edit_record=0x7f030005;
         public static final int get_registration=0x7f030006;
+        public static final int search_record=0x7f030007;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
@@ -77,20 +86,25 @@ public final class R {
         public static final int calculate_consumption=0x7f050005;
         public static final int cost_label=0x7f05000e;
         public static final int cost_text=0x7f050012;
+        public static final int date_hint=0x7f050019;
         public static final int date_label=0x7f05000b;
         public static final int date_text=0x7f05000f;
         public static final int delete_record=0x7f050004;
         public static final int edit_record=0x7f050006;
+        public static final int enter_vehicle_registration=0x7f050015;
         public static final int get_registration=0x7f050008;
         public static final int hello_world=0x7f050001;
         public static final int litres_label=0x7f05000d;
         public static final int litres_text=0x7f050011;
+        public static final int main_menu=0x7f050016;
         public static final int menu_settings=0x7f050002;
         public static final int odometer_label=0x7f05000c;
         public static final int odometer_text=0x7f050010;
         public static final int pick_date=0x7f050013;
         public static final int registration_number=0x7f05000a;
         public static final int save_record=0x7f050014;
+        public static final int search=0x7f050018;
+        public static final int search_record_heading=0x7f050017;
         public static final int splash_screen=0x7f050007;
     }
     public static final class style {

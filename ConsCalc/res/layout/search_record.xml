@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/textViewSearchRecordHeading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        android:text="@string/search_record_heading"
+        android:textSize="@dimen/Heading0" />
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayoutDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+        <Button 
+            android:id="@+id/buttonPickDate"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/pick_date" />
+        
+        <TextView
+            android:id="@+id/textViewDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/date_label"
+            android:textSize="@dimen/fourteen" />
+        
+        <TextView
+            android:id="@+id/textViewDisplayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewDateLabel"
+            android:hint="@string/date_hint"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="@dimen/twelve" />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:id="@+id/relativeLayoutOdometer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+        <EditText
+            android:id="@+id/editTextOdometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="@string/odometer_text"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal" />
+        
+        <TextView
+            android:id="@+id/textViewOdometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/odometer_label"
+            android:textSize="@dimen/fourteen" />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayoutSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+	    <Button
+	        android:id="@+id/buttonSearch"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentRight="true"
+	        android:text="@string/search" />
+	       
+	</RelativeLayout>    
+</LinearLayout>

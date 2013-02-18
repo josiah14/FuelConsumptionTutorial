@@ -22,5 +22,10 @@
     <string name="cost_text">cost</string>
     <string name="pick_date">Pick Date</string>
     <string name="save_record">Save record</string>
+    <string name="enter_vehicle_registration">Enter Vehicle Registration</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="search_record_heading">Search Record</string>
+    <string name="search">Search</string>
+    <string name="date_hint">Display date</string>
 
 </resources>

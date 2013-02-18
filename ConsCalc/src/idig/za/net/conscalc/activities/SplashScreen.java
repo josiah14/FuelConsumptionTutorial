@@ -1,10 +1,9 @@
 package idig.za.net.conscalc.activities;
 
-import idig.za.net.conscalc.R;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
+import idig.za.net.conscalc.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -19,10 +18,12 @@ public class SplashScreen extends Activity {
 		private static debugLevels debugLevel = debugLevels.ON;
 		public static enum debugLevels { OFF, ON };
 		
+		@SuppressWarnings("unused")
 		public static debugLevels getDebugLevel() {
 			return debugLevel;
 		}
 		
+		@SuppressWarnings("unused")
 		public static void setDebugLevel(debugLevels newDebugLevel) {
 			debugLevel = newDebugLevel;
 		}

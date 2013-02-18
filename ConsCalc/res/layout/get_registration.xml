@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Enter Vehicle Registration"
+        android:text="@string/enter_vehicle_registration"
         android:textSize="20sp" />
 
     <EditText
@@ -27,6 +27,6 @@
         android:id="@+id/buttonSaveRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Save Registration" />
 
 </LinearLayout>

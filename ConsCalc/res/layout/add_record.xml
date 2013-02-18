@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/date_label" />
+            android:text="@string/date_label"
+            android:textSize="@dimen/fourteen" />
 
         <TextView
             android:id="@+id/TextViewDisplayDate"

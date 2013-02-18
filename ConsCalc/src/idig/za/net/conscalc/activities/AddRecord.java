@@ -1,7 +1,5 @@
 package idig.za.net.conscalc.activities;
 
-import idig.za.net.conscalc.R;
-
 import java.util.Calendar;
 import java.util.Date;
 
@@ -11,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +18,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import idig.za.net.conscalc.R;
+import idig.za.net.conscalc.database.DatabaseInterface;
 import idig.za.net.conscalc.database.FuelRecord;
 import idig.za.net.conscalc.dialog_fragments.DatePickerDialogFragment;
 
@@ -44,6 +45,8 @@ public class AddRecord extends Activity {
 	// declare a file for storing the preferences
 	public static final String PREFS_NAME = "MyPrefsFile";
 	FuelRecord mFuelRecord;
+	// Database comm
+	private DatabaseInterface mDbHelper; 
 	
 	/*************************************************************************************************************
 	 * Nested Classes																							 *
@@ -54,10 +57,12 @@ public class AddRecord extends Activity {
 		private static debugLevels debugLevel = debugLevels.ON;
 		public static enum debugLevels { OFF, ON };
 		
+		@SuppressWarnings("unused")
 		public static debugLevels getDebugLevel() {
 			return debugLevel;
 		}
 		
+		@SuppressWarnings("unused")
 		public static void setDebugLevel(debugLevels newDebugLevel) {
 			debugLevel = newDebugLevel;
 		}
@@ -70,6 +75,9 @@ public class AddRecord extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_record);
+		
+		// create database communicator
+		mDbHelper = new DatabaseInterface(this);
 		
 		// set textViews with values
 		TextView tvDate = (TextView) findViewById(R.id.TextViewDisplayDate);
@@ -118,6 +126,15 @@ public class AddRecord extends Activity {
 					mFuelRecord.setOdometer(odometerValue);
 					mFuelRecord.setLitres(litresValue);
 					mFuelRecord.setCost(costValue);
+					
+					// returns row id as long integer else returns -1 on failure
+					if (mDbHelper.addRecord(mFuelRecord) != -1) {
+						Toast.makeText(AddRecord.this, "Record added successfully!", Toast.LENGTH_LONG).show();
+					} else {
+						Toast.makeText(AddRecord.this, "Record failed to be added! Perhaps a duplicate?", Toast.LENGTH_LONG).show();
+					}
+					
+					returnToMainMenu();
 				}
 			}
 		});
@@ -140,6 +157,7 @@ public class AddRecord extends Activity {
 		
 		// add a click listener to the button
 		mPickDate.setOnClickListener(new View.OnClickListener() {
+			@SuppressWarnings("deprecation")
 			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
@@ -154,6 +172,12 @@ public class AddRecord extends Activity {
 				}
 			}
 		});
+	}
+	
+	private void returnToMainMenu() {
+		// create an intent to go to the menu activity
+		Intent menuIntent = new Intent(AddRecord.this, CalcMenu.class);
+		startActivity(menuIntent);
 	}
 	
 	private SharedPreferences getPreferences() {

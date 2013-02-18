@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -69,7 +68,8 @@ public class CalcMenu extends Activity {
 			@Override
 			public void onClick(View v) {
 				// create an Intent object for this activity, including its destination class
-				Intent myIntent = new Intent(CalcMenu.this, EditRecord.class);
+				Intent myIntent = new Intent(CalcMenu.this, SearchRecord.class);
+				myIntent.putExtra("goTo", 1); // edit=1, delete=2
 				// run the activity
 				startActivity(myIntent);
 			}
